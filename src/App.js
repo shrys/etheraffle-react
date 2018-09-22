@@ -46,10 +46,29 @@ class App extends Component {
       });
     } catch (ex) {
       this.setState({ message: 'Error: ' + ex.message});
+      console.log(ex);
       isSuccess = false;
     }
     if (isSuccess)
       this.setState({ message: "You have been entered!" });
+  };
+
+  onClick = async () => {
+    const accounts = await web3.eth.getAccounts();
+
+    this.setState({ message: "Waiting on transaction success" });
+    var isSuccess = true;
+    try {
+      await lottery.methods.pickWinner().send({
+        from: accounts[0]
+      });
+    } catch (ex) {
+      this.setState({ message: 'Error: ' + ex.message});
+      console.log(ex);
+      isSuccess = false;
+    }
+    if (isSuccess)
+      this.setState({ message: "Winner picked!" });
   };
 
   notify = () => {
@@ -108,6 +127,8 @@ class App extends Component {
           </div>
           <button>Enter</button>
         </form>
+        <h4>Pick a winner</h4>
+        <button onClick={this.onClick}>Pick</button>
       </div>
     );
   }
