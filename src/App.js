@@ -100,8 +100,8 @@ class App extends Component {
         </div>
         <div className="row mt-5">
           <div className="col-md-12 text-center">
-            <h1 className="display3 mb-0">EtherRaffle</h1>
-            <p className="text-muted mt-0 mb-5">
+            <h1 className="display-4 mb-0">Ethe<span className="pt-1 pl-1 pr-1 pb-0 bg-dark text-white rounded">R</span>affle</h1>
+            <p className="text-muted mt-2 mb-5">
               Ethereum based Lottery smart contract
             </p>
           </div>
@@ -110,20 +110,20 @@ class App extends Component {
           <div className="card shadow p-3 bg-white rounded col-md-6">
             <div className="mb-0">
               <h4>Manager's address</h4>
-              <kbd>{this.state.manager}</kbd>
+              <kbd className="bg-dark">{this.state.manager}</kbd>
               <hr />
               <div className="container mt-3">
                 <div className="row">
                   <div className="col col-7 h3 text-right">Total participants</div>
                   <div className="col h2">
-                    <kbd>{this.state.players.length}</kbd>
+                    <kbd className="bg-dark">{this.state.players.length}</kbd>
                   </div>
                   <div className="w-100" />
                   <div className="col col-7 h3 text-right">
                     Prize amount <span className="h6 text-muted">ether</span>
                   </div>
                   <div className="col h2">
-                    <kbd>{web3.utils.fromWei(this.state.balance, "ether")}</kbd>
+                    <kbd className="bg-dark">{web3.utils.fromWei(this.state.balance, "ether")}</kbd>
                   </div>
                 </div>
               </div>
